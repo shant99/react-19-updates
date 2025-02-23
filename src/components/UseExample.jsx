@@ -1,8 +1,5 @@
 import { use } from "react";
-
-const fetchUsers = fetch("https://jsonplaceholder.typicode.com/users").then(
-  (r) => r.json()
-);
+import { fetchUsers } from "../API/api";
 
 export default function UseExample() {
   const users = use(fetchUsers);

@@ -3,7 +3,7 @@ import { fakeLogin } from "../API/api";
 import SubmitButton from "./UseFormStatus";
 
 export default function AuthForm() {
-  const [state, submitAction] = useActionState(auth, {
+  const [state, submitAction, isPending] = useActionState(auth, {
     data: null,
     error: null,
   });
@@ -36,6 +36,7 @@ export default function AuthForm() {
         <label htmlFor="password">Password</label>
       </div>
       <SubmitButton />
+      {isPending && <p>Is Pending...</p>}
       {state.data && <p>{state.data.email} Logged in</p>}
       {state.error && <p style={{ color: "red" }}>{state.error}</p>}
     </form>
